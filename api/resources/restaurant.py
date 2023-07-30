@@ -1,9 +1,7 @@
 import logging
-
 from flask import request
 from flask_restful import Resource, abort
 from sqlalchemy.orm.exc import NoResultFound
-
 from api.database import db
 from api.models.models import Restaurant
 from api.schemas.schema import RestaurantSchema
