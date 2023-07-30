@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from api.models import Restaurant, Promotion, MenuItem, StaffMapping, Review, Administrator, Order, OrderItem, PaymentTransaction, Customer, LoyaltyProgram
+from api.models.models import Restaurant, Promotion, MenuItem, StaffMapping, Review, Administrator, Order, OrderItem, PaymentTransaction, Customer, LoyaltyProgram
 
 class RestaurantSchema(Schema):
     restaurant_id = fields.Integer()

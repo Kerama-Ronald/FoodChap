@@ -11,6 +11,8 @@ from flask_restful import Api
 from api.constants import PROJECT_ROOT, DATABASE_NAME
 from api.database import db
 from api.resources.test_resource import TestResource, TEST_ENDPOINT
+from api.resources.restaurant import RestaurantResource, RESTAURANT_ENDPOINT
+from api.resources.restaurants import RestaurantsResource, RESTAURANTS_ENDPOINT
 
 def create_app(db_location):
     """
@@ -34,6 +36,8 @@ def create_app(db_location):
 
     api = Api(app)
     api.add_resource(TestResource, TEST_ENDPOINT)
+    api.add_resource(RestaurantsResource, RESTAURANTS_ENDPOINT)
+    api.add_resource(RestaurantResource, RESTAURANT_ENDPOINT)
     
     return app
 
