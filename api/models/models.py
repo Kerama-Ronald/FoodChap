@@ -1,5 +1,6 @@
 from api.database import db
 
+
 class Restaurant(db.Model):
     restaurant_id = db.Column(db.Integer, primary_key=True)
     admin_id = db.Column(db.Integer, db.ForeignKey('administrator.admin_id'))
@@ -120,3 +121,11 @@ class LoyaltyProgram(db.Model):
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.customer_id'))
     loyalty_points = db.Column(db.Integer)
     customer = db.relationship('Customer', back_populates='loyalty_program')
+
+class User(db.Model):
+    id = db.Column(db.String, primary_key=True, nullable=False)
+    name = db.Column(db.String)
+    email = db.Column(db.String, nullable=False)
+    emailVerified = db.Column(db.DateTime(timezone=False))
+    image = db.Column(db.String)
+    role = db.Column(db.Enum('user', 'admin', 'partner', name='user_role'), nullable=False, default='user')
